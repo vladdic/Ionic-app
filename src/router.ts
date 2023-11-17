@@ -4,8 +4,9 @@ import { RouteRecordRaw } from 'vue-router';
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    redirect: '/'
-  },
+    component: () => import('@/components/pages/TheHome.vue'), 
+    },
+
 ]
 
 const router = createRouter({
@@ -13,4 +14,4 @@ const router = createRouter({
   routes
 })
 
-export default router
+export default router;

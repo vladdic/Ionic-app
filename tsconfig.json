@@ -2,6 +2,7 @@
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
+    "allowJs": true,
     "strict": true,
     "types": ["vite/client"],
     "jsx": "preserve",

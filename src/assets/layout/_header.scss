@@ -1,0 +1,30 @@
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+
+  @media screen and (min-width: $screen-xl) {
+  }
+  @media screen and (min-width: $screen-xs) {
+  }
+  @media screen and (min-width: $screen-xxs) {
+    padding: 0.2rem;
+  }
+
+  .header__links a {
+    text-decoration: none;
+    margin-right: 20px;
+    color: #000;
+  }
+
+  .header__home-link {
+    text-decoration: none;
+    color: #000;
+  }
+
+  .header__icons {
+    display: flex;
+    gap: 0.5rem;
+  }
+}
