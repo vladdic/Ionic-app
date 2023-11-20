@@ -2,7 +2,7 @@
   <div class="header__container">
     <div class="header__links" v-show="isSmallScreen">
       <ion-button @click.native="toggleContent" fill="clear" color="dark">
-        <ion-icon :icon="menu"></ion-icon>
+        <ion-icon :icon="menu" size="large"></ion-icon>
       </ion-button>
     </div>
 
@@ -16,20 +16,20 @@
 
     <div class="header__icons">
       <ion-button fill="clear" color="dark" v-show="!isSmallScreen">
-        <ion-icon :icon="search"></ion-icon>
+        <ion-icon :icon="search" size="large"></ion-icon>
       </ion-button>
       <ion-button fill="clear" color="dark" v-show="!isSmallScreen">
-        <ion-icon :icon="person"></ion-icon>
+        <ion-icon :icon="person" size="large"></ion-icon>
       </ion-button>
       <ion-button fill="clear" color="dark">
-        <ion-icon :icon="basket"></ion-icon>
+        <ion-icon :icon="basket" size="large"></ion-icon>
       </ion-button>
     </div>
 
     <div v-if="showContent" class="menu__content">
       <div class="menu__close">
         <ion-button @click.native="toggleContent" fill="clear" color="dark">
-          <ion-icon :icon="closeIcon"></ion-icon>
+          <ion-icon size="large" :icon="closeIcon"></ion-icon>
         </ion-button>
       </div>
       <div class="menu__links">
