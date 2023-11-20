@@ -1,7 +1,7 @@
-import { createRouter, createWebHashHistory } from '@ionic/vue-router';
+import { createRouter, createWebHistory } from '@ionic/vue-router';
 import {routes} from '@/pages/index';
 
 export const router = createRouter({
-    history: createWebHashHistory(),
+    history: createWebHistory(),
     routes,
 })

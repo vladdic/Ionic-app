@@ -1,6 +1,6 @@
-import "@/app/styles/index.scss"
-import {router, store} from './providers';
+import "@/app/styles/index.scss";
 import App from './App.vue';
+import {router, store} from './providers';
 import { IonicVue } from '@ionic/vue';
 import { createApp } from 'vue';
 
