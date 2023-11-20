@@ -3,5 +3,5 @@
 </template>
 
 <script setup lang="ts">
-import TheHeader from "@/components/pages/TheHeader.vue";
+import TheHeader from "./TheHeader.vue";
 </script>
