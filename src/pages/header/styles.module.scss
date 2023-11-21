@@ -1,3 +1,5 @@
+@import "@/app/styles/abstracts/variables";
+
 .header__container {
   display: flex;
   justify-content: space-between;
@@ -19,12 +21,12 @@
     display: flex;
 
     @media screen and (min-width: $screen-xs) {
-      gap: 0.5rem;
+      gap: 1rem;
       font-size: 1.5rem;
     }
 
     @media screen and (min-width: $screen-xl) {
-      gap: 1rem;
+      gap: 1.4rem;
       font-size: 2rem;
     }
 
@@ -43,7 +45,7 @@
     }
   }
 
-  .header__home-link {
+  .header__homelink {
     text-decoration: none;
     font-size: 1rem;
     color: #000;
