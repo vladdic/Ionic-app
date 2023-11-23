@@ -1,6 +1,5 @@
-// index.ts
 import { defineStore } from 'pinia';
-import { getProducts } from '@/shared/api/typicode/api';
+import { getProductsByCategoryId } from '@/shared/api/typicode/api'; 
 import { ProductsApiResponse } from '@/shared/api/typicode/apiTypes';
 
 interface State {
@@ -13,9 +12,9 @@ export const useStore = defineStore('store', {
   }),
 
   actions: {
-    async fetchProducts(): Promise<ProductsApiResponse | null> {
+    async fetchProductsByCategoryId(categoryId: number): Promise<ProductsApiResponse | null> {
       try {
-        const response = await getProducts();
+        const response = await getProductsByCategoryId(categoryId);
         if (response) {
           this.products = response;
           return this.products;
@@ -23,6 +22,7 @@ export const useStore = defineStore('store', {
           return null;
         }
       } catch (error) {
+        console.error('Error in store.ts:', error);
         return null;
       }
     },

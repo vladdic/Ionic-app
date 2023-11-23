@@ -1,7 +1,3 @@
-export interface ProductsApiResponse {
-  data: Product[];
-}
-
 export interface Product {
   id: number;
   title: string;
@@ -13,4 +9,8 @@ export interface Product {
     image: string;
   };
   images: string[];
+}
+
+export interface ProductsApiResponse {
+  data: Product[];
 }
