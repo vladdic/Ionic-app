@@ -19,14 +19,8 @@ const products = ref([]);
 
 onMounted(async () => {
   try {
-    console.log("Before fetching products. Current products:", products.value);
     products.value = (await store.fetchProducts()) || [];
-    console.log("After fetching products. Fetched products:", [
-      ...products.value,
-    ]);
-  } catch (error) {
-    console.error("Error fetching products:", error);
-  }
+  } catch (error) {}
 });
 </script>
 
@@ -36,7 +30,6 @@ onMounted(async () => {
   flex-wrap: wrap;
   justify-content: space-around;
   margin: 20px;
-  overflow-y: auto; 
-  max-height: 80vh; 
+  max-height: 100vh;
 }
 </style>

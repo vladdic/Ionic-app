@@ -1,12 +1,15 @@
 <template>
   <ion-page>
-    <TheHeader></TheHeader>
-    <CardList></CardList>
+    <div :class="styles.page">
+      <TheHeader></TheHeader>
+      <CardList></CardList>
+    </div>
   </ion-page>
 </template>
 
 <script setup lang="ts">
 import TheHeader from "./header/TheHeader.vue";
 import CardList from "./main/CardList.vue";
+import styles from "./styles.module.scss";
 import { IonPage } from "@ionic/vue";
 </script>
