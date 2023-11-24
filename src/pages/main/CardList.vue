@@ -19,19 +19,9 @@ const products = ref([]);
 
 onMounted(async () => {
   try {
-    products.value = await store.fetchProductsByCategoryId(3);
+    products.value = await store.fetchProductsByCategoryId(5);
   } catch (error) {
     console.error("Error in CardList.vue:", error);
   }
 });
 </script>
-
-<style scoped>
-.card-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  margin: 20px;
-  max-height: 100vh;
-}
-</style>

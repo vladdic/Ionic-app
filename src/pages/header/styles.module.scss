@@ -4,13 +4,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem;
+  padding: 0.7rem;
 
   @media screen and (min-width: $screen-xxs) {
-    padding: 0.5rem;
+    padding: 0.7rem;
   }
   @media screen and (min-width: $screen-xs) {
-    padding: 1rem;
+    padding: 1.5rem;
   }
 
   @media screen and (min-width: $screen-xl) {
@@ -28,20 +28,6 @@
     @media screen and (min-width: $screen-xl) {
       gap: 1.4rem;
       font-size: 2rem;
-    }
-
-    a {
-      text-decoration: none;
-      font-size: 1rem;
-      color: #000;
-
-      @media screen and (min-width: $screen-xs) {
-        font-size: 1.5rem;
-      }
-
-      @media screen and (min-width: $screen-xl) {
-        font-size: 2rem;
-      }
     }
   }
 
