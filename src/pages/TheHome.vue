@@ -2,7 +2,7 @@
   <ion-page>
     <div :class="styles.page">
       <TheHeader></TheHeader>
-      <CardList></CardList>
+      <div :class="styles.page__content"><CardList></CardList></div>
     </div>
   </ion-page>
 </template>

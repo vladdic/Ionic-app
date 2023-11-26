@@ -1,4 +1,11 @@
+@import "@/app/styles/abstracts/mixins";
+
 .page {
   height: 100%;
   overflow-y: auto;
+
+  &__content {
+    @include stacked-elements;
+    width: 100%;
+  }
 }
