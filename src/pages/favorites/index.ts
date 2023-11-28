@@ -13,12 +13,9 @@ export const useCartStore = defineStore('cart', {
   actions: {
     addToCart(product: Product): void {
       this.cartItems.push(product);
-      console.log("Adding to cart:", product);
-
     },
     
     removeFromCart(product: Product): void {
-      console.log("Removing from cart:", product);
       const index = this.cartItems.findIndex((cartProduct) => cartProduct.id === product.id);
       if (index !== -1) {
         this.cartItems.splice(index, 1);

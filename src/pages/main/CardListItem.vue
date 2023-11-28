@@ -1,4 +1,3 @@
-<!-- CardListItem.vue -->
 <template>
   <ion-card :class="styles.card" color="light">
     <img
@@ -27,7 +26,6 @@ const cartStore = useCartStore();
 
 const addToCart = () => {
   const nonReactiveProduct = JSON.parse(JSON.stringify(product));
-  console.log("Adding to cart:", nonReactiveProduct);
   cartStore.addToCart(nonReactiveProduct);
 };
 </script>

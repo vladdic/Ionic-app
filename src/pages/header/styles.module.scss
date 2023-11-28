@@ -2,9 +2,15 @@
 
 .header__container {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 0.7rem;
+  justify-content: space-between;
+  position: sticky;
+  width: 100%;
+  padding: 1rem;
+  top: 0;
+  z-index: 1000;
+  background-color: #ffffff;
+  border-bottom: 1px solid #000;
 
   @media screen and (min-width: $screen-xxs) {
     padding: 0.7rem;
@@ -54,7 +60,7 @@
   }
 
   .menu__content {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -74,23 +80,23 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-    }
 
-    a {
-      margin-top: 2rem;
-      text-decoration: none;
-      font-size: 1rem;
-      color: #000;
+      a {
+        margin-top: 2rem;
+        text-decoration: none;
+        font-size: 1rem;
+        color: #000;
 
-      @media screen and (min-width: $screen-xxs) {
-        font-size: 1.5rem;
-      }
-      @media screen and (min-width: $screen-xs) {
-        font-size: 1.5rem;
-      }
+        @media screen and (min-width: $screen-xxs) {
+          font-size: 1.5rem;
+        }
+        @media screen and (min-width: $screen-xs) {
+          font-size: 1.5rem;
+        }
 
-      @media screen and (min-width: $screen-xl) {
-        font-size: 2rem;
+        @media screen and (min-width: $screen-xl) {
+          font-size: 2rem;
+        }
       }
     }
   }

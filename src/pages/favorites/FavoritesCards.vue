@@ -1,24 +1,23 @@
 <template>
   <ion-page>
-    <TheHeader></TheHeader>
     <div :class="styles.cart">
-      <h1 :class="styles.cart__title">Shopping Cart</h1>
+      <TheHeader></TheHeader>
+      <h1 :class="styles.cart__title">Cart</h1>
       <div v-if="cartItems.length === 0" :class="styles.cart__message">
-        <p>Your shopping cart is empty.</p>
+        <p>Your cart is empty.</p>
       </div>
-      <div v-else :class="styles.cart__items">
-        <div
-          v-for="item in cartItems"
-          :key="item.id"
-          :class="styles.cart__item"
-        >
-          <ion-card color="light">
+      <div :class="styles.card__list">
+        <div v-for="item in cartItems">
+          <ion-card color="light" :class="styles.card">
             <img
               v-for="image in item.images"
               :src="image"
-              alt="Images of each element"
+              alt="Image of each element"
             />
-            <p>Price: {{ item.price }}</p>
+            <div :class="styles.card__info">
+              <p>{{ item.description }}</p>
+              <p>Price: {{ item.price }}</p>
+            </div>
           </ion-card>
         </div>
       </div>
@@ -39,7 +38,6 @@ const cartItems = ref([]);
 
 const updateCartItems = () => {
   cartItems.value = [...cartStore.getCartItems()];
-  console.log(cartStore.getCartItems());
 };
 
 onMounted(() => {
