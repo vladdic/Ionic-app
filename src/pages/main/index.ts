@@ -1,6 +1,6 @@
-import { defineStore } from 'pinia';
 import { getProductsByCategoryId } from '@/shared/api/typicode/api'; 
 import { ProductsApiResponse } from '@/shared/api/typicode/apiTypes';
+import { defineStore } from 'pinia';
 
 interface State {
   products: ProductsApiResponse | null;

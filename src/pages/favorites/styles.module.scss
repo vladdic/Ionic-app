@@ -1,0 +1,45 @@
+/* styles.module.scss */
+.cart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  height: 100%;
+
+  &__title {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+
+  &__message {
+    font-size: 18px;
+    color: gray;
+    margin-top: 20px;
+  }
+
+  &__items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  &__item {
+    margin: 10px;
+
+    ion-card {
+      background-color: #f8f8f8;
+      border-radius: 10px;
+
+      img {
+        width: 100%;
+        border-radius: 10px 10px 0 0;
+      }
+
+      p {
+        margin: 10px;
+        font-size: 16px;
+      }
+    }
+  }
+}

@@ -9,7 +9,7 @@
     <router-link to="/" :class="styles.header__homelink">Home</router-link>
 
     <div :class="styles.header__icons">
-      <ion-button fill="clear" color="dark">
+      <ion-button fill="clear" color="dark" @click="goToCart">
         <ion-icon :icon="basket" size="large"></ion-icon>
       </ion-button>
     </div>
@@ -30,22 +30,19 @@
 <script setup lang="ts">
 import { useHeaderStore } from "./index";
 import styles from "./styles.module.scss";
-import { onMounted, onBeforeUnmount } from "vue";
 import { IonIcon, IonButton } from "@ionic/vue";
 import { basket, menu, close } from "ionicons/icons";
+import { useRouter } from "vue-router";
 const store = useHeaderStore();
 
 const closeIcon = close;
+const router = useRouter();
 
 const toggleContent = () => {
   store.toggleContent();
 };
 
-onMounted(() => {
-  store.init();
-});
-
-onBeforeUnmount(() => {
-  store.destroy();
-});
+const goToCart = () => {
+  router.push("/cart");
+};
 </script>
