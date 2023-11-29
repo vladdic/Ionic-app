@@ -45,4 +45,6 @@ const toggleContent = () => {
 const goToCart = () => {
   router.push("/cart");
 };
+
+store.init();
 </script>

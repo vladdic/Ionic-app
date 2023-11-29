@@ -23,9 +23,7 @@ export const useHeaderStore = defineStore({
     },
     init() {
       window.addEventListener('resize', this.handleResize);
-    },
-    destroy() {
-      window.removeEventListener('resize', this.handleResize);
+      this.handleResize();
     },
   },
 });
