@@ -3,25 +3,27 @@
 .card__list {
   display: flex;
   flex-wrap: wrap;
-  max-width: 12rem;
+  justify-content: space-between;
+  max-width: 11rem;
+  margin: 1rem auto;
   gap: 0.5rem;
 
   @media screen and (min-width: $screen-xxs) {
-    max-width: 25rem;
-    gap: 0px;
+    max-width: 23rem;
   }
+
   @media screen and (min-width: $screen-xs) {
-    max-width: 38rem;
+    max-width: 35rem;
   }
 
   @media screen and (min-width: $screen-xl) {
-    max-width: 63rem;
+    max-width: 40rem;
   }
 }
 
 .card {
   padding: 0.5rem;
-  width: 200px;
+  width: 175px;
 
   &__price {
     display: flex;

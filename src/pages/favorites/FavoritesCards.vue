@@ -6,19 +6,21 @@
       <div v-if="cartItems.length === 0" :class="styles.cart__message">
         <p>Your cart is empty.</p>
       </div>
-      <div :class="styles.card__list">
-        <div v-for="item in cartItems">
-          <ion-card color="light" :class="styles.card">
-            <img
-              v-for="image in item.images"
-              :src="image"
-              alt="Image of each element"
-            />
-            <div :class="styles.card__info">
-              <p>{{ item.description }}</p>
-              <p>Price: {{ item.price }}</p>
-            </div>
-          </ion-card>
+      <div class="cards__container">
+        <div :class="styles.card__list">
+          <div v-for="item in cartItems">
+            <ion-card color="light" :class="styles.card">
+              <img
+                v-for="image in item.images"
+                :src="image"
+                alt="Image of each element"
+              />
+              <div :class="styles.card__info">
+                <p>{{ item.description }}</p>
+                <p>Price: {{ item.price }}</p>
+              </div>
+            </ion-card>
+          </div>
         </div>
       </div>
     </div>

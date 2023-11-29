@@ -40,16 +40,24 @@
     }
   }
 
+  .cards__container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
   .card__list {
     display: flex;
     flex-wrap: wrap;
-    max-width: 12rem;
+    justify-content: space-between;
+    max-width: 11rem;
+    margin: 1rem auto;
     gap: 0.5rem;
 
     @media screen and (min-width: $screen-xxs) {
-      max-width: 25rem;
-      gap: 0px;
+      max-width: 23rem;
     }
+
     @media screen and (min-width: $screen-xs) {
       max-width: 38rem;
     }
@@ -60,12 +68,12 @@
 
     .card {
       padding: 0.5rem;
-      width: 200px;
+      width: 175px;
 
-      &__info {
+      &__price {
         display: flex;
-        flex-direction: column;
-        justify-content: center;
+        flex-direction: row;
+        justify-content: space-between;
         align-items: center;
       }
     }
