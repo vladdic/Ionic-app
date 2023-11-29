@@ -58,31 +58,45 @@
       }
 
       @media screen and (min-width: $screen-xs) {
-        max-width: 38rem;
+        max-width: 39rem;
       }
 
       @media screen and (min-width: $screen-xl) {
-        max-width: 63rem;
+        max-width: 48rem;
       }
 
       .card {
         padding: 0.5rem;
         width: 175px;
 
-        &__price {
+        @media screen and (min-width: $screen-xxs) {
+          width: 175px;
+        }
+
+        @media screen and (min-width: $screen-xs) {
+          width: 200px;
+        }
+
+        @media screen and (min-width: $screen-xl) {
+          width: 250px;
+        }
+
+        &__info {
           display: flex;
           flex-direction: row;
           justify-content: space-between;
           align-items: center;
         }
+        p {
+          font-size: 0.7rem;
+        }
       }
     }
   }
-
   &__total {
     display: flex;
     justify-content: flex-end;
-    padding: 7rem;
+    padding: 5rem;
     width: 100%;
     font-size: 1.5rem;
   }

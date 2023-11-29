@@ -13,17 +13,29 @@
   }
 
   @media screen and (min-width: $screen-xs) {
-    max-width: 35rem;
+    max-width: 39rem;
   }
 
   @media screen and (min-width: $screen-xl) {
-    max-width: 40rem;
+    max-width: 48rem;
   }
 }
 
 .card {
   padding: 0.5rem;
   width: 175px;
+
+  @media screen and (min-width: $screen-xxs) {
+    width: 175px;
+  }
+
+  @media screen and (min-width: $screen-xs) {
+    width: 200px;
+  }
+
+  @media screen and (min-width: $screen-xl) {
+    width: 250px;
+  }
 
   &__price {
     display: flex;
