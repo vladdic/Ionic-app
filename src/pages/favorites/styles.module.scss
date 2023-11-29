@@ -44,38 +44,46 @@
     display: flex;
     justify-content: center;
     width: 100%;
-  }
 
-  .card__list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    max-width: 11rem;
-    margin: 1rem auto;
-    gap: 0.5rem;
+    .card__list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      max-width: 11rem;
+      margin: 1rem auto;
+      gap: 0.5rem;
 
-    @media screen and (min-width: $screen-xxs) {
-      max-width: 23rem;
-    }
+      @media screen and (min-width: $screen-xxs) {
+        max-width: 23rem;
+      }
 
-    @media screen and (min-width: $screen-xs) {
-      max-width: 38rem;
-    }
+      @media screen and (min-width: $screen-xs) {
+        max-width: 38rem;
+      }
 
-    @media screen and (min-width: $screen-xl) {
-      max-width: 63rem;
-    }
+      @media screen and (min-width: $screen-xl) {
+        max-width: 63rem;
+      }
 
-    .card {
-      padding: 0.5rem;
-      width: 175px;
+      .card {
+        padding: 0.5rem;
+        width: 175px;
 
-      &__price {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
+        &__price {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+        }
       }
     }
+  }
+
+  &__total {
+    display: flex;
+    justify-content: flex-end;
+    padding: 7rem;
+    width: 100%;
+    font-size: 1.5rem;
   }
 }

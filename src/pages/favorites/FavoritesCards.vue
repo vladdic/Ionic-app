@@ -6,7 +6,7 @@
       <div v-if="cartItems.length === 0" :class="styles.cart__message">
         <p>Your cart is empty.</p>
       </div>
-      <div class="cards__container">
+      <div :class="styles.cards__container">
         <div :class="styles.card__list">
           <div v-for="item in cartItems">
             <ion-card color="light" :class="styles.card">
@@ -23,6 +23,9 @@
           </div>
         </div>
       </div>
+      <div :class="styles.cart__total">
+        <p v-if="cartItems.length !== 0">Total Cost: {{ totalCost }}</p>
+      </div>
     </div>
   </ion-page>
 </template>
@@ -33,7 +36,7 @@ import TheHeader from "@/pages/header/TheHeader.vue";
 import { useCartStore } from "./index";
 import { IonCard } from "@ionic/vue";
 import { IonPage } from "@ionic/vue";
-import { ref, onMounted, watch } from "vue";
+import { ref, onMounted, watch, computed } from "vue";
 
 const cartStore = useCartStore();
 const cartItems = ref([]);
@@ -41,6 +44,10 @@ const cartItems = ref([]);
 const updateCartItems = () => {
   cartItems.value = [...cartStore.getCartItems()];
 };
+
+const totalCost = computed(() => {
+  return cartItems.value.reduce((total, item) => total + item.price, 0);
+});
 
 onMounted(() => {
   updateCartItems();
