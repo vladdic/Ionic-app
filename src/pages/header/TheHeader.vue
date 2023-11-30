@@ -6,8 +6,14 @@
       </ion-button>
     </div>
 
-    <router-link to="/" :class="styles.header__homelink">Home</router-link>
-
+    <ion-button
+      :class="styles.header__homelink"
+      fill="clear"
+      color="dark"
+      @click="goToHome"
+    >
+      Home
+    </ion-button>
     <div :class="styles.header__icons">
       <ion-button fill="clear" color="dark" @click="goToCart">
         <ion-icon :icon="basket" size="large"></ion-icon>
@@ -46,5 +52,9 @@ const goToCart = () => {
   router.push("/cart");
 };
 
+const goToHome = () => {
+  window.scrollTo(0, 0);
+  router.push("/");
+};
 store.init();
 </script>

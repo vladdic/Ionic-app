@@ -39,18 +39,18 @@
 
   .header__homelink {
     text-decoration: none;
-    font-size: 1.5rem;
+    font-size: 1rem;
     color: #000;
 
     @media screen and (min-width: $screen-xxs) {
-      font-size: 2rem;
+      font-size: 1.5rem;
     }
     @media screen and (min-width: $screen-xs) {
-      font-size: 2.5rem;
+      font-size: 2rem;
     }
 
     @media screen and (min-width: $screen-xl) {
-      font-size: 3rem;
+      font-size: 2.5rem;
     }
   }
 
