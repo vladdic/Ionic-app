@@ -44,7 +44,13 @@
         </ion-button>
       </div>
       <div :class="styles.menu__links">
-        <a href="#">About us</a>
+        <ion-button
+          @click="goToAbout"
+          fill="clear"
+          color="dark"
+          :class="styles.menu__links_about"
+          >About us</ion-button
+        >
       </div>
     </div>
   </div>
@@ -66,13 +72,18 @@ const toggleContent = () => {
   store.toggleContent();
 };
 
+const goToHome = () => {
+  window.scrollTo(0, 0);
+  router.push("/");
+};
+
 const goToCart = () => {
   router.push("/cart");
 };
 
-const goToHome = () => {
+const goToAbout = () => {
   window.scrollTo(0, 0);
-  router.push("/");
+  router.push("/about");
 };
 
 const isCartRoute = router.currentRoute.value.path === "/cart";
@@ -94,7 +105,7 @@ const cartMenuButton = computed(() => {
 });
 
 const showHomeButton = computed(() => {
-  return !store.showContent && !isCartRoute;
+  return !isCartRoute;
 });
 
 const showCartButton = computed(() => {
