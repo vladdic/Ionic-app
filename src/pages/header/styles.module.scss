@@ -13,14 +13,14 @@
   border-bottom: 1px solid #000;
 
   @media screen and (min-width: $screen-xxs) {
-    padding: 0.7rem;
+    padding: 0.5rem;
   }
   @media screen and (min-width: $screen-xs) {
-    padding: 1.5rem;
+    padding: 0.6rem;
   }
 
   @media screen and (min-width: $screen-xl) {
-    padding: 2rem;
+    padding: 0.8rem;
   }
 
   .header__links {
@@ -46,11 +46,11 @@
       font-size: 1.5rem;
     }
     @media screen and (min-width: $screen-xs) {
-      font-size: 2rem;
+      font-size: 1.8rem;
     }
 
     @media screen and (min-width: $screen-xl) {
-      font-size: 2.5rem;
+      font-size: 2rem;
     }
   }
 
@@ -91,7 +91,7 @@
           font-size: 1.5rem;
         }
         @media screen and (min-width: $screen-xs) {
-          font-size: 1.5rem;
+          font-size: 1.8rem;
         }
 
         @media screen and (min-width: $screen-xl) {

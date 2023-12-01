@@ -75,8 +75,6 @@ const goToHome = () => {
   router.push("/");
 };
 
-store.init();
-
 const isCartRoute = router.currentRoute.value.path === "/cart";
 const isHomeRoute = router.currentRoute.value.path === "/";
 
@@ -88,7 +86,7 @@ const dynamicHeaderClass = computed(() => {
 });
 
 const showMenuButton = computed(() => {
-  return !store.showContent && store.isSmallScreen && isHomeRoute;
+  return store.isSmallScreen && isHomeRoute;
 });
 
 const cartMenuButton = computed(() => {
@@ -100,10 +98,11 @@ const showHomeButton = computed(() => {
 });
 
 const showCartButton = computed(() => {
-  return !isCartRoute && !store.showContent;
+  return !isCartRoute;
 });
 
 const showSideMenu = computed(() => {
   return store.showContent && (isCartRoute || isHomeRoute);
 });
+store.init();
 </script>
