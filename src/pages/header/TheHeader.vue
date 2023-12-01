@@ -10,6 +10,15 @@
     </ion-button>
 
     <ion-button
+      v-if="cartMenuButton"
+      @click.native="toggleContent"
+      fill="clear"
+      color="dark"
+    >
+      <ion-icon :icon="menu" size="large"></ion-icon>
+    </ion-button>
+
+    <ion-button
       v-if="showHomeButton"
       :class="styles.header__homelink"
       fill="clear"
@@ -29,7 +38,6 @@
     </ion-button>
 
     <div v-if="showSideMenu" :class="styles.menu__content">
-      <!-- Ваше боковое меню -->
       <div :class="styles.menu__close">
         <ion-button @click.native="toggleContent" fill="clear" color="dark">
           <ion-icon size="large" :icon="closeIcon"></ion-icon>
@@ -80,7 +88,11 @@ const dynamicHeaderClass = computed(() => {
 });
 
 const showMenuButton = computed(() => {
-  return !store.showContent && (isCartRoute || isHomeRoute);
+  return !store.showContent && store.isSmallScreen && isHomeRoute;
+});
+
+const cartMenuButton = computed(() => {
+  return !store.showContent && isCartRoute;
 });
 
 const showHomeButton = computed(() => {
