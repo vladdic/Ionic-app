@@ -1,12 +1,16 @@
 <template>
-  <div :class="styles.header__container">
-    <div :class="styles.header__links" v-show="store.isSmallScreen">
-      <ion-button @click.native="toggleContent" fill="clear" color="dark">
-        <ion-icon :icon="menu" size="large"></ion-icon>
-      </ion-button>
-    </div>
+  <div :class="dynamicHeaderClass">
+    <ion-button
+      v-if="showMenuButton"
+      @click.native="toggleContent"
+      fill="clear"
+      color="dark"
+    >
+      <ion-icon :icon="menu" size="large"></ion-icon>
+    </ion-button>
 
     <ion-button
+      v-if="showHomeButton"
       :class="styles.header__homelink"
       fill="clear"
       color="dark"
@@ -14,13 +18,18 @@
     >
       Home
     </ion-button>
-    <div :class="styles.header__icons">
-      <ion-button fill="clear" color="dark" @click="goToCart">
-        <ion-icon :icon="basket" size="large"></ion-icon>
-      </ion-button>
-    </div>
 
-    <div v-if="store.showContent" :class="styles.menu__content">
+    <ion-button
+      v-if="showCartButton"
+      fill="clear"
+      color="dark"
+      @click="goToCart"
+    >
+      <ion-icon :icon="basket" size="large"></ion-icon>
+    </ion-button>
+
+    <div v-if="showSideMenu" :class="styles.menu__content">
+      <!-- Ваше боковое меню -->
       <div :class="styles.menu__close">
         <ion-button @click.native="toggleContent" fill="clear" color="dark">
           <ion-icon size="large" :icon="closeIcon"></ion-icon>
@@ -39,10 +48,11 @@ import styles from "./styles.module.scss";
 import { IonIcon, IonButton } from "@ionic/vue";
 import { basket, menu, close } from "ionicons/icons";
 import { useRouter } from "vue-router";
+import { computed } from "vue";
 const store = useHeaderStore();
+const router = useRouter();
 
 const closeIcon = close;
-const router = useRouter();
 
 const toggleContent = () => {
   store.toggleContent();
@@ -56,5 +66,32 @@ const goToHome = () => {
   window.scrollTo(0, 0);
   router.push("/");
 };
+
 store.init();
+
+const isCartRoute = router.currentRoute.value.path === "/cart";
+const isHomeRoute = router.currentRoute.value.path === "/";
+
+const dynamicHeaderClass = computed(() => {
+  return {
+    [styles.header__container]: true,
+    [styles.dynamic_header_cart]: isCartRoute,
+  };
+});
+
+const showMenuButton = computed(() => {
+  return !store.showContent && (isCartRoute || isHomeRoute);
+});
+
+const showHomeButton = computed(() => {
+  return !store.showContent && !isCartRoute;
+});
+
+const showCartButton = computed(() => {
+  return !isCartRoute && !store.showContent;
+});
+
+const showSideMenu = computed(() => {
+  return store.showContent && (isCartRoute || isHomeRoute);
+});
 </script>
