@@ -1,0 +1,17 @@
+.main__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin: auto;
+  gap: 5rem;
+
+  h1 {
+    font-size: 2rem;
+    line-height: 1.6;
+  }
+  p {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+}

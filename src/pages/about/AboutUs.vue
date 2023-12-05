@@ -1,7 +1,10 @@
 <template>
   <ion-page>
     <TheHeader></TheHeader>
-    <div>JUi</div>
+    <div :class="styles.main__content">
+      <h1>{{ title }}</h1>
+      <p>{{ text }}</p>
+    </div>
   </ion-page>
 </template>
 
@@ -9,4 +12,8 @@
 import styles from "./styles.module.scss";
 import TheHeader from "@/pages/header/TheHeader.vue";
 import { IonPage } from "@ionic/vue";
+
+const title = "Vlad dic";
+const text =
+  "We sell clothes and various goods, the site is at the release stage, wait for updates.";
 </script>
