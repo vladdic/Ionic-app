@@ -15,7 +15,7 @@
   </ion-card>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import styles from "./styles.module.scss";
 import { useCartStore } from "@/pages/favorites/index";
 import { IonCard, IonButton, IonIcon } from "@ionic/vue";

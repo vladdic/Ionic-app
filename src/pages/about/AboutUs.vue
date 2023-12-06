@@ -8,12 +8,12 @@
   </ion-page>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import styles from "./styles.module.scss";
 import TheHeader from "@/pages/header/TheHeader.vue";
 import { IonPage } from "@ionic/vue";
 
-const title = "Vlad dic";
-const text =
+const title: string = "Vlad dic";
+const text: string =
   "We sell clothes and various goods, the app is at the release stage, wait for updates.";
 </script>

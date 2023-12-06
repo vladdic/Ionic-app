@@ -8,12 +8,12 @@
       </div>
       <div :class="styles.cards__container">
         <div :class="styles.card__list">
-          <div v-for="item in cartItems">
+          <div v-for="item in cartItems" :key="item.id">
             <ion-card color="light" :class="styles.card">
               <img
                 v-for="image in item.images"
                 :src="image"
-                alt="Image of each element"
+                :alt="`Image of ${item.description}`"
               />
               <div :class="styles.card__info">
                 <p>{{ item.description }}</p>
@@ -30,16 +30,17 @@
   </ion-page>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import styles from "./styles.module.scss";
 import TheHeader from "@/pages/header/TheHeader.vue";
 import { useCartStore } from "./index";
+import { Product } from "@/shared/api/typicode/apiTypes";
 import { IonCard } from "@ionic/vue";
 import { IonPage } from "@ionic/vue";
 import { ref, onMounted, watch, computed } from "vue";
 
 const cartStore = useCartStore();
-const cartItems = ref([]);
+const cartItems = ref<Product[]>([]);
 
 const updateCartItems = () => {
   cartItems.value = [...cartStore.getCartItems()];
