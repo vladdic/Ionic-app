@@ -15,5 +15,5 @@ import { IonPage } from "@ionic/vue";
 
 const title = "Vlad dic";
 const text =
-  "We sell clothes and various goods, the site is at the release stage, wait for updates.";
+  "We sell clothes and various goods, the app is at the release stage, wait for updates.";
 </script>

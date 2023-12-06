@@ -74,10 +74,12 @@ const toggleContent = () => {
 
 const goToHome = () => {
   window.scrollTo(0, 0);
+  store.showContent = false;
   router.push("/");
 };
 
 const goToCart = () => {
+  store.showContent = false;
   router.push("/cart");
 };
 
