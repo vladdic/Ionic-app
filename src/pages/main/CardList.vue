@@ -8,18 +8,27 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import CardListItem from "./CardListItem.vue";
 import { useStore } from "./index";
 import styles from "./styles.module.scss";
+import { Product } from "@/shared/api/typicode/apiTypes";
 import { ref, onMounted } from "vue";
 
 const store = useStore();
-const products = ref([]);
+const products = ref<Product[]>([]);
 
 onMounted(async () => {
   try {
-    products.value = await store.fetchProductsByCategoryId(5);
+    console.log("Trying to fetch products...");
+    const response = await store.fetchProductsByCategoryId(1);
+    console.log("Response:", response);
+    if (response && Array.isArray(response)) {
+      console.log("Products data:", response);
+      products.value = response;
+    } else {
+      console.log("No data received");
+    }
   } catch (error) {
     console.error("Error in CardList.vue:", error);
   }
