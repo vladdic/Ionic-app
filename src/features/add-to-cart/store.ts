@@ -1,5 +1,5 @@
-import { defineStore } from 'pinia';
 import { Product } from '@/shared/api/typicode/apiTypes';
+import { defineStore } from 'pinia';
 
 interface CartState {
   cartItems: Product[];

@@ -33,10 +33,9 @@
 <script setup lang="ts">
 import styles from "./styles.module.scss";
 import TheHeader from "@/pages/header/TheHeader.vue";
-import { useCartStore } from "./index";
+import { useCartStore } from "@/features/add-to-cart/store";
 import { Product } from "@/shared/api/typicode/apiTypes";
-import { IonCard } from "@ionic/vue";
-import { IonPage } from "@ionic/vue";
+import { IonCard, IonPage } from "@ionic/vue";
 import { ref, onMounted, watch, computed } from "vue";
 
 const cartStore = useCartStore();

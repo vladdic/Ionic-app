@@ -8,24 +8,15 @@
     />
     <div :class="styles.card__price">
       <p>Price: {{ product.price }}</p>
-      <ion-button fill="clear" color="dark" size="small" @click="addToCart">
-        <ion-icon :icon="cartOutline"></ion-icon>
-      </ion-button>
+      <Ui :product="product" />
     </div>
   </ion-card>
 </template>
 
 <script setup lang="ts">
 import styles from "./styles.module.scss";
-import { useCartStore } from "@/pages/favorites/index";
-import { IonCard, IonButton, IonIcon } from "@ionic/vue";
-import { cartOutline } from "ionicons/icons";
+import Ui from "@/features/add-to-cart/Ui.vue";
+import { IonCard } from "@ionic/vue";
 
 const { product } = defineProps(["product"]);
-const cartStore = useCartStore();
-
-const addToCart = () => {
-  const nonReactiveProduct = JSON.parse(JSON.stringify(product));
-  cartStore.addToCart(nonReactiveProduct);
-};
 </script>
