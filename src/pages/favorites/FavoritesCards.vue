@@ -18,6 +18,7 @@
               <div :class="styles.card__info">
                 <p>{{ item.description }}</p>
                 <p>Price: {{ item.price }}</p>
+                <Ui :product="item" />
               </div>
             </ion-card>
           </div>
@@ -35,7 +36,9 @@ import styles from "./styles.module.scss";
 import TheHeader from "@/pages/header/TheHeader.vue";
 import { useCartStore } from "@/features/add-to-cart/store";
 import { Product } from "@/shared/api/typicode/apiTypes";
-import { IonCard, IonPage } from "@ionic/vue";
+import Ui from "@/features/add-to-cart/Ui.vue";
+import { IonCard } from "@ionic/vue";
+import { IonPage } from "@ionic/vue";
 import { ref, onMounted, watch, computed } from "vue";
 
 const cartStore = useCartStore();
