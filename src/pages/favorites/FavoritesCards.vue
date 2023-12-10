@@ -18,7 +18,9 @@
               <div :class="styles.card__info">
                 <p>{{ item.description }}</p>
                 <p>Price: {{ item.price }}</p>
-                <Ui :product="item" />
+                <div :class="styles.card__info_deleted">
+                  <Ui :product="item" />
+                </div>
               </div>
             </ion-card>
           </div>
