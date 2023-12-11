@@ -39,8 +39,7 @@ import TheHeader from "@/pages/header/TheHeader.vue";
 import { useCartStore } from "@/features/add-to-cart/store";
 import { Product } from "@/shared/api/typicode/apiTypes";
 import Ui from "@/features/add-to-cart/Ui.vue";
-import { IonCard } from "@ionic/vue";
-import { IonPage } from "@ionic/vue";
+import { IonCard, IonPage } from "@ionic/vue";
 import { ref, onMounted, watch, computed } from "vue";
 
 const cartStore = useCartStore();
