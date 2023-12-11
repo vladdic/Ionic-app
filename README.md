@@ -71,15 +71,9 @@ Follow the Functional Specification Document (FSD) methodology to comprehensivel
 
 Adjust the number of displayed cards dynamically in the [CardList.vue](#) component based on the provided argument (from 1 to 5). Modify the template section as follows:
 
-<script setup lang="ts">
-  // ... (existing script setup code)
       const response = await store.fetchProductsByCategoryId(#); // Adjust the initial count based on your requirement
-  // ... (existing script setup code)
-</script>
 
-```
 Now, you can dynamically control the number of displayed cards by changing the `dynamicCardCount` variable.
-```
 
 ---
 
