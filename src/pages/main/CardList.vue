@@ -21,7 +21,7 @@ const products = ref<Product[]>([]);
 onMounted(async () => {
   try {
     console.log("Trying to fetch products...");
-    const response = await store.fetchProductsByCategoryId(1);
+    const response = await store.fetchProductsByCategoryId(3);
     console.log("Response:", response);
     if (response && Array.isArray(response)) {
       console.log("Products data:", response);
