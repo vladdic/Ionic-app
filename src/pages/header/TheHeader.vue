@@ -75,7 +75,7 @@ const toggleContent = () => {
 const goToHome = () => {
   window.scrollTo(0, 0);
   store.showContent = false;
-  router.push("/");
+  router.push("/home");
 };
 
 const goToCart = () => {
@@ -89,7 +89,7 @@ const goToAbout = () => {
 };
 
 const isCartRoute = router.currentRoute.value.path === "/cart";
-const isHomeRoute = router.currentRoute.value.path === "/";
+const isHomeRoute = router.currentRoute.value.path === "/home";
 
 const dynamicHeaderClass = computed(() => {
   return {
