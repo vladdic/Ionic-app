@@ -3,31 +3,31 @@
     <div :class="styles.cart">
       <TheHeader></TheHeader>
       <h1 :class="styles.cart__title">Cart</h1>
-      <div v-if="cartItems.length === 0" :class="styles.cart__message">
+      <div v-if="favoriteItems.length === 0" :class="styles.cart__message">
         <p>Your cart is empty.</p>
       </div>
       <div :class="styles.cards__container">
         <div :class="styles.card__list">
-          <div v-for="item in cartItems" :key="item.id">
-            <ion-card color="light" :class="styles.card">
-              <img
-                v-for="image in item.images"
-                :src="image"
-                :alt="`Image of ${item.description}`"
-              />
+          <div v-for="(character, index) in favoriteItems" :key="index">
+            <ion-card
+              v-if="character && character.image"
+              color="light"
+              :class="styles.card"
+            >
+              <img :src="character.image" :alt="`Image of ${character.name}`" />
               <div :class="styles.card__info">
-                <p>{{ item.description }}</p>
-                <p>Price: {{ item.price }}</p>
-                <div :class="styles.card__info_deleted">
-                  <Ui :product="item" />
-                </div>
+                <p>{{ character.name }}</p>
+                <Ui
+                  :image="character.image"
+                  :name="character.name"
+                  :status="character.status"
+                  :species="character.species"
+                  :id="character.id"
+                />
               </div>
             </ion-card>
           </div>
         </div>
-      </div>
-      <div :class="styles.cart__total">
-        <p v-if="cartItems.length !== 0">Total Cost: {{ totalCost }}</p>
       </div>
     </div>
   </ion-page>
@@ -36,25 +36,28 @@
 <script setup lang="ts">
 import styles from "./styles.module.scss";
 import TheHeader from "@/pages/header/TheHeader.vue";
-import { useCartStore } from "@/features/add-to-cart/store";
-import { Product } from "@/shared/api/typicode/apiTypes";
 import Ui from "@/features/add-to-cart/Ui.vue";
+import { useFavoritesStore } from "@/features/add-to-cart/store";
 import { IonCard, IonPage } from "@ionic/vue";
-import { ref, onMounted, watch, computed } from "vue";
+import { ref, onMounted, watch } from "vue";
 
-const cartStore = useCartStore();
-const cartItems = ref<Product[]>([]);
+interface Character {
+  id: number;
+  image: string;
+  name: string;
+  status: string;
+  species: string;
+}
 
-const updateCartItems = () => {
-  cartItems.value = [...cartStore.getCartItems()];
+const favoritesStore = useFavoritesStore();
+const favoriteItems = ref<Character[]>([]);
+
+const updateFavoriteItems = () => {
+  favoriteItems.value = [...favoritesStore.getFavoriteItems()];
 };
 
-const totalCost = computed(() => {
-  return cartItems.value.reduce((total, item) => total + item.price, 0);
-});
-
 onMounted(() => {
-  updateCartItems();
-  watch(cartStore, updateCartItems);
+  updateFavoriteItems();
+  watch(favoritesStore, updateFavoriteItems);
 });
 </script>

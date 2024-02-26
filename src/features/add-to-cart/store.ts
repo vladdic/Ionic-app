@@ -1,29 +1,31 @@
-import { Product } from '@/shared/api/typicode/apiTypes';
-import { defineStore } from 'pinia';
+import { Character } from "@/shared/api/typicode/apiTypes";
+import { defineStore } from "pinia";
 
-interface CartState {
-  cartItems: Product[];
+interface FavoritesState {
+  favoriteItems: Character[];
 }
 
-export const useCartStore = defineStore('cart', {
-  state: (): CartState => ({
-    cartItems: [],
+export const useFavoritesStore = defineStore("favorites", {
+  state: (): FavoritesState => ({
+    favoriteItems: [],
   }),
 
   actions: {
-    addToCart(product: Product): void {
-      this.cartItems.push(product);
+    addToFavorites(character: Character): void {
+      this.favoriteItems.push(character);
     },
-    
-    removeFromCart(product: Product): void {
-      const index = this.cartItems.findIndex((cartProduct) => cartProduct.id === product.id);
+
+    removeFromFavorites(character: Character): void {
+      const index = this.favoriteItems.findIndex(
+        (favCharacter) => favCharacter.id === character.id
+      );
       if (index !== -1) {
-        this.cartItems.splice(index, 1);
+        this.favoriteItems.splice(index, 1);
       }
     },
 
-    getCartItems(): Product[] {
-      return this.cartItems;
+    getFavoriteItems(): Character[] {
+      return this.favoriteItems;
     },
   },
 });

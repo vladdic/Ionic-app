@@ -1,16 +1,14 @@
-export interface Product {
+export interface Character {
   id: number;
-  title: string;
-  price: number;
-  description: string;
-  category: {
-    id: number;
-    name: string;
-    image: string;
-  };
-  images: string[];
+  name: string;
+  status: string;
+  image: string;
+  species: string;
 }
 
-export interface ProductsApiResponse {
-  data: Product[];
+export interface ApiResponse {
+  results: Character[];
+  info: {
+    pages: number;
+  };
 }

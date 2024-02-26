@@ -1,12 +1,15 @@
 import apiClient from "./apiClient";
-import { ProductsApiResponse } from "./apiTypes";
+import { ApiResponse } from "./apiTypes";
 
-export async function getProductsByCategoryId(categoryId: number): Promise<ProductsApiResponse> {
+export async function fetchCharacters(page: number): Promise<ApiResponse> {
   try {
-    const response = await apiClient.get<ProductsApiResponse>(`products?categoryId=${categoryId}`);
+    const response = await apiClient.get("character", {
+      params: {
+        page,
+      },
+    });
     return response.data;
   } catch (error) {
-    console.error('Error in api.ts:', error);
     throw error;
   }
 }

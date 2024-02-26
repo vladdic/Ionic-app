@@ -5,22 +5,28 @@
 </template>
 
 <script setup lang="ts">
-import { useCartStore } from "./store";
+import { useFavoritesStore } from "./store";
 import { IonButton, IonIcon } from "@ionic/vue";
 import { cartOutline, trashOutline } from "ionicons/icons";
 import { useRoute } from "vue-router";
 import { computed } from "vue";
 
-const { product } = defineProps(["product"]);
-const cartStore = useCartStore();
+const props = defineProps<{
+  image: string;
+  name: string;
+  status: string;
+  species: string;
+  id: number;
+}>();
+
+const cartStore = useFavoritesStore();
 const route = useRoute();
 
 const handleButtonClick = () => {
   if (route.path === "/cart") {
-    cartStore.removeFromCart(product);
+    cartStore.removeFromFavorites(props);
   } else {
-    const nonReactiveProduct = JSON.parse(JSON.stringify(product));
-    cartStore.addToCart(nonReactiveProduct);
+    cartStore.addToFavorites(props);
   }
 };
 

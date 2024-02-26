@@ -1,36 +1,33 @@
 <template>
   <div :class="styles.card__list">
     <CardListItem
-      v-for="product in products.slice(0, 6)"
-      :key="product.id"
-      :product="product"
+      v-for="character in charactersList"
+      :name="character.name"
+      :status="character.status"
+      :species="character.species"
+      :image="character.image"
+      :id="character.id"
     />
   </div>
 </template>
 
 <script setup lang="ts">
 import CardListItem from "./CardListItem.vue";
-import { useStore } from "./index";
+import { useCardStore } from "./index";
+import { Character } from "@/shared/api/typicode/apiTypes";
 import styles from "./styles.module.scss";
-import { Product } from "@/shared/api/typicode/apiTypes";
 import { ref, onMounted } from "vue";
 
-const store = useStore();
-const products = ref<Product[]>([]);
+const store = useCardStore();
+
+const charactersList = ref<Character[]>([]);
 
 onMounted(async () => {
   try {
-    console.log("Trying to fetch products...");
-    const response = await store.fetchProductsByCategoryId(3);
-    console.log("Response:", response);
-    if (response && Array.isArray(response)) {
-      console.log("Products data:", response);
-      products.value = response;
-    } else {
-      console.log("No data received");
-    }
+    await store.fetchData(store.currentPage);
+    charactersList.value = store.charactersList;
   } catch (error) {
-    console.error("Error in CardList.vue:", error);
+    console.error("Error in cardList.vue:", error);
   }
 });
 </script>

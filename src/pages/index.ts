@@ -4,6 +4,11 @@ export const routes: Array<RouteRecordRaw> = [
   { path: "/", redirect: "/home" },
   { path: "/home", name: "Home", component: () => import("./TheHome.vue") },
   {
+    path: "/auth",
+    name: "Authorization",
+    component: () => import("@/features/authorization/TheAuthorization.vue"),
+  },
+  {
     path: "/cart",
     name: "Cart",
     component: () => import("@/pages/favorites/FavoritesCards.vue"),
