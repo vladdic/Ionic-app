@@ -1,12 +1,13 @@
 <template>
   <ion-card :class="styles.card" color="light">
     <img :src="props.image" alt="Images of each element" />
-    <div class="card-body">
+    <div :class="styles.card__body">
       <span>{{ props.name }}</span>
-      <span :class="statusClass" class="status">
+      <span :class="statusClass">
         {{ props.status }} - {{ props.species }}
       </span>
       <Ui
+        :class="styles.btn__self"
         :image="props.image"
         :name="props.name"
         :status="props.status"

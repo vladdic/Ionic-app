@@ -36,11 +36,17 @@
     width: 250px;
   }
 
-  &__price {
+  &__body {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 0.2rem;
+    justify-content: center;
     align-items: center;
+  }
+
+  .btn__self {
+    display: flex;
+    align-self: flex-end;
   }
 
   img {
@@ -48,10 +54,5 @@
     height: auto;
     border-radius: 4px;
     margin-bottom: 8px;
-  }
-
-  p {
-    font-size: 1rem;
-    color: black;
   }
 }
