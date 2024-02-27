@@ -1,0 +1,36 @@
+@import "@/app/styles/abstracts/variables";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 11rem;
+  margin: 1rem auto;
+  width: 100%;
+  height: 100%;
+
+  @media screen and (min-width: $screen-xxs) {
+    max-width: 23rem;
+  }
+
+  @media screen and (min-width: $screen-xs) {
+    max-width: 39rem;
+  }
+
+  @media screen and (min-width: $screen-xl) {
+    max-width: 48rem;
+  }
+
+  .home_btn {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .login {
+    display: flex;
+    margin: auto;
+
+    &__label {
+      font-size: 1rem;
+      color: black;
+    }
+  }
+}

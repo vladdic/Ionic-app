@@ -22,7 +22,6 @@ import styles from "./styles.module.scss";
 import Ui from "@/features/add-to-cart/Ui.vue";
 import { IonCard } from "@ionic/vue";
 import { computed } from "vue";
-import { defineProps } from "vue";
 
 export interface Props {
   image: string;

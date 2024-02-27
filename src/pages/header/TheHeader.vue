@@ -27,15 +27,25 @@
     >
       Home
     </ion-button>
+    <div>
+      <ion-button
+        v-if="showAuthButton"
+        fill="clear"
+        color="dark"
+        @click="goToAuth"
+      >
+        <ion-icon :icon="logoGoogle" size="large"></ion-icon>
+      </ion-button>
 
-    <ion-button
-      v-if="showCartButton"
-      fill="clear"
-      color="dark"
-      @click="goToCart"
-    >
-      <ion-icon :icon="basket" size="large"></ion-icon>
-    </ion-button>
+      <ion-button
+        v-if="showCartButton"
+        fill="clear"
+        color="dark"
+        @click="goToCart"
+      >
+        <ion-icon :icon="basket" size="large"></ion-icon>
+      </ion-button>
+    </div>
 
     <div v-if="showSideMenu" :class="styles.menu__content">
       <div :class="styles.menu__close">
@@ -60,9 +70,10 @@
 import { useHeaderStore } from "./index";
 import styles from "./styles.module.scss";
 import { IonIcon, IonButton } from "@ionic/vue";
-import { basket, menu, close } from "ionicons/icons";
+import { basket, menu, close, logoGoogle } from "ionicons/icons";
 import { useRouter } from "vue-router";
 import { computed } from "vue";
+
 const store = useHeaderStore();
 const router = useRouter();
 
@@ -83,6 +94,10 @@ const goToCart = () => {
   router.push("/cart");
 };
 
+const goToAuth = () => {
+  router.push("/auth");
+};
+
 const goToAbout = () => {
   window.scrollTo(0, 0);
   router.push("/about");
@@ -90,6 +105,7 @@ const goToAbout = () => {
 
 const isCartRoute = router.currentRoute.value.path === "/cart";
 const isHomeRoute = router.currentRoute.value.path === "/home";
+const isAuthRoute = router.currentRoute.value.path === "/auth";
 
 const dynamicHeaderClass = computed(() => {
   return {
@@ -112,6 +128,10 @@ const showHomeButton = computed(() => {
 
 const showCartButton = computed(() => {
   return !isCartRoute;
+});
+
+const showAuthButton = computed(() => {
+  return !isAuthRoute;
 });
 
 const showSideMenu = computed(() => {
