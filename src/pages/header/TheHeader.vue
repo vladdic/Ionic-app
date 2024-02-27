@@ -29,7 +29,7 @@
     </ion-button>
     <div>
       <ion-button
-        v-if="showAuthButton"
+        v-if="showAuthButton && showCartButton"
         fill="clear"
         color="dark"
         @click="goToAuth"

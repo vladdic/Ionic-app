@@ -2,15 +2,21 @@
   <ion-page>
     <div :class="styles.container">
       <div :class="styles.home_btn">
-        <ion-button @click="goHome">go to home</ion-button>
+        <ion-button @click="goHome" fill="outline" color="dark" shape="round"
+          >go back</ion-button
+        >
       </div>
       <div :class="styles.login">
-        <ion-button @click="login" v-if="!loggedIn"
-          >Log in with Google</ion-button
+        <ion-label v-if="!loggedIn">Sign in with Google</ion-label>
+        <ion-button
+          @click="login"
+          v-if="!loggedIn"
+          fill="outline"
+          color="dark"
+          shape="round"
+          >Log in</ion-button
         >
-        <ion-label :class="styles.login__label" v-if="loggedIn"
-          >Logged in as: {{ userEmail }}</ion-label
-        >
+        <ion-label v-if="loggedIn">Logged in as: {{ userEmail }}</ion-label>
       </div>
     </div>
   </ion-page>
@@ -18,7 +24,7 @@
 
 <script setup lang="ts">
 import styles from "./styles.module.scss";
-import { router } from "@/app/providers/router";
+import { useRouter } from "vue-router";
 import { ref } from "vue";
 import { IonButton, IonPage, IonLabel } from "@ionic/vue";
 import {
@@ -29,6 +35,8 @@ import {
   GOOGLE_USER_INFO_URI,
 } from "./config";
 import axios from "axios";
+
+const router = useRouter();
 
 const loggedIn = ref(false);
 const userEmail = ref("");
@@ -47,7 +55,6 @@ const login = async () => {
 const goHome = () => {
   router.push("/home");
 };
-// Обработка кода, полученного после успешной авторизации Google
 const handleAuthorizationCode = async () => {
   const urlParams = new URLSearchParams(window.location.search);
   const code = urlParams.get("code");
@@ -74,6 +81,5 @@ const handleAuthorizationCode = async () => {
   }
 };
 
-// Вызываем обработку кода после загрузки страницы
 handleAuthorizationCode();
 </script>
