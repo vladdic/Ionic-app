@@ -14,6 +14,5 @@ import TheHeader from "@/pages/header/TheHeader.vue";
 import { IonPage } from "@ionic/vue";
 
 const title: string = "Vlad dic";
-const text: string =
-  "We sell clothes and various goods, the app is at the release stage, wait for updates.";
+const text: string = "The app is at the release stage, wait for updates.";
 </script>
