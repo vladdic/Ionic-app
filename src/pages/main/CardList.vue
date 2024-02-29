@@ -6,6 +6,9 @@
       :status="character.status"
       :species="character.species"
       :image="character.image"
+      :gender="character.gender"
+      :location="character.location"
+      :created="character.created"
       :id="character.id"
     />
   </div>

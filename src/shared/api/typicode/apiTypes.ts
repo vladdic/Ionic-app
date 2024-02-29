@@ -4,6 +4,11 @@ export interface Character {
   status: string;
   image: string;
   species: string;
+  gender: string;
+  location: {
+    name: string;
+  };
+  created: string;
 }
 
 export interface ApiResponse {
