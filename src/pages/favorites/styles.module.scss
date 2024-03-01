@@ -11,10 +11,10 @@
     margin-bottom: 2rem;
     font-size: 2rem;
 
-    @media screen and (min-width: $screen-xxs) {
+    @media screen and (min-width: $screen-xs) {
       font-size: 2.5rem;
     }
-    @media screen and (min-width: $screen-xs) {
+    @media screen and (min-width: $screen-md) {
       font-size: 3rem;
     }
 
@@ -28,10 +28,10 @@
     font-size: 1rem;
     color: gray;
 
-    @media screen and (min-width: $screen-xxs) {
+    @media screen and (min-width: $screen-xs) {
       font-size: 1.5rem;
     }
-    @media screen and (min-width: $screen-xs) {
+    @media screen and (min-width: $screen-md) {
       font-size: 1.5rem;
     }
 
@@ -53,11 +53,11 @@
       margin: 1rem auto;
       gap: 0.2rem;
 
-      @media screen and (min-width: $screen-xxs) {
+      @media screen and (min-width: $screen-xs) {
         max-width: 23rem;
       }
 
-      @media screen and (min-width: $screen-xs) {
+      @media screen and (min-width: $screen-md) {
         max-width: 39rem;
       }
 
@@ -69,11 +69,11 @@
         padding: 0.5rem;
         width: 175px;
 
-        @media screen and (min-width: $screen-xxs) {
+        @media screen and (min-width: $screen-xs) {
           width: 175px;
         }
 
-        @media screen and (min-width: $screen-xs) {
+        @media screen and (min-width: $screen-md) {
           width: 200px;
         }
 

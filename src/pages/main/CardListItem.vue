@@ -1,14 +1,14 @@
 <template>
   <ion-card :class="styles.card" color="light">
-    <button @click="setOpen(true)">
+    <ion-button fill="clear" size="small" color="light" @click="setOpen(true)">
       <img :src="props.image" alt="Images of each element" />
-    </button>
+    </ion-button>
     <div :class="styles.card__body">
-      <span>{{ props.name }}</span>
-      <span :class="statusClass">
-        {{ props.status }} - {{ props.species }}
-      </span>
-
+      <h2>{{ props.name }}</h2>
+      <div>
+        <span :class="styles.card__body_species"> Species: </span>
+        <span>{{ props.species }} </span>
+      </div>
       <Ui
         :class="styles.btn__self"
         :image="props.image"
@@ -32,11 +32,11 @@
       <ion-card :class="styles.card" color="light">
         <img :src="props.image" alt="Images of each element" />
         <div :class="styles.card__body">
-          <span>{{ props.name }}</span>
-          <span>{{ props.location.name }}</span>
-          <span :class="statusClass">
-            {{ props.status }} - {{ props.species }}
-          </span>
+          <h2>{{ props.name }}</h2>
+          <div>
+            <span :class="styles.card__body_species"> Species: </span>
+            <span>{{ props.species }} </span>
+          </div>
         </div>
       </ion-card></ion-content
     >

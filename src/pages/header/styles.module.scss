@@ -13,9 +13,13 @@
   border-bottom: 1px solid #000;
 
   @media screen and (min-width: $screen-xxs) {
+    padding: 0.1rem;
+  }
+
+  @media screen and (min-width: $screen-xs) {
     padding: 0.5rem;
   }
-  @media screen and (min-width: $screen-xs) {
+  @media screen and (min-width: $screen-md) {
     padding: 0.6rem;
   }
 
@@ -26,7 +30,12 @@
   .header__links {
     display: flex;
 
-    @media screen and (min-width: $screen-xs) {
+    @media screen and (min-width: $screen-xxs) {
+      gap: 0.2rem;
+      font-size: 0.5rem;
+    }
+
+    @media screen and (min-width: $screen-md) {
       gap: 1rem;
       font-size: 1.5rem;
     }
@@ -39,13 +48,14 @@
 
   .header__homelink {
     text-decoration: none;
+    font-weight: bold;
     font-size: 1rem;
     color: #000;
 
-    @media screen and (min-width: $screen-xxs) {
+    @media screen and (min-width: $screen-xs) {
       font-size: 1.5rem;
     }
-    @media screen and (min-width: $screen-xs) {
+    @media screen and (min-width: $screen-md) {
       font-size: 1.8rem;
     }
 
@@ -54,6 +64,9 @@
     }
   }
 
+  .header__otherBtns {
+    display: flex;
+  }
   .header__icons {
     display: flex;
     gap: 2rem;
@@ -89,6 +102,9 @@
         color: #000;
 
         @media screen and (min-width: $screen-xxs) {
+          font-size: 1rem;
+        }
+        @media screen and (min-width: $screen-xs) {
           font-size: 1.3rem;
         }
       }

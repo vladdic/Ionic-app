@@ -27,7 +27,7 @@
     >
       Home
     </ion-button>
-    <div>
+    <div :class="styles.header__otherBtns">
       <ion-button
         v-if="showAuthButton && showCartButton"
         fill="clear"
