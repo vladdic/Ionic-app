@@ -29,17 +29,43 @@
       </ion-toolbar>
     </ion-header>
     <ion-content>
-      <ion-card :class="styles.card" color="light">
-        <img :src="props.image" alt="Images of each element" />
-        <div :class="styles.card__body">
-          <h2>{{ props.name }}</h2>
-          <div>
-            <span :class="styles.card__body_species"> Species: </span>
-            <span>{{ props.species }} </span>
+      <div :class="styles.modal">
+        <ion-card color="light">
+          <div :class="styles.modal__img">
+            <img :src="props.image" alt="Images of each element" />
           </div>
-        </div>
-      </ion-card></ion-content
-    >
+          <div :class="styles.modal__body">
+            <h2>{{ props.name }}</h2>
+            <div :class="styles.modal__info">
+              <div>
+                <span :class="styles.modal__info_firstLetter">Species: </span>
+                <span>{{ props.species }} </span>
+              </div>
+              <div>
+                <span :class="styles.modal__info_firstLetter">Status: </span>
+                <span>{{ props.status }} </span>
+              </div>
+              <div>
+                <span :class="styles.modal__info_firstLetter">Gender: </span>
+                <span>{{ props.gender }}</span>
+              </div>
+              <div>
+                <span :class="styles.modal__info_firstLetter">Origin: </span>
+                <span>{{ props.origin.name }}</span>
+              </div>
+              <div>
+                <span :class="styles.modal__info_firstLetter">Location: </span>
+                <span>{{ props.location.name }}</span>
+              </div>
+              <div>
+                <span :class="styles.modal__info_firstLetter">Created: </span>
+                <span>{{ props.created }}</span>
+              </div>
+            </div>
+          </div>
+        </ion-card>
+      </div>
+    </ion-content>
   </ion-modal>
 </template>
 
@@ -63,6 +89,7 @@ export interface Props {
   status: string;
   species: string;
   location: { name: string };
+  origin: { name: string };
   created: string;
   gender: string;
   id: number;
@@ -86,6 +113,10 @@ const props: Props = defineProps({
     required: true,
   },
   location: {
+    type: Object as () => { name: string },
+    required: true,
+  },
+  origin: {
     type: Object as () => { name: string },
     required: true,
   },

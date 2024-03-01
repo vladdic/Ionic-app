@@ -8,6 +8,7 @@
       :image="character.image"
       :gender="character.gender"
       :location="character.location"
+      :origin="character.origin"
       :created="character.created"
       :id="character.id"
     />
