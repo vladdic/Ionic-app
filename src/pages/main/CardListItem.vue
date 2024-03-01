@@ -81,7 +81,7 @@ import {
   IonButtons,
   IonButton,
 } from "@ionic/vue";
-import { ref, computed } from "vue";
+import { ref } from "vue";
 
 export interface Props {
   image: string;
@@ -135,19 +135,6 @@ const props: Props = defineProps({
 });
 
 let isOpen = ref<boolean>(false);
-
-const statusClass = computed(() => {
-  switch (props.status) {
-    case "Alive":
-      return "status__alive";
-    case "Dead":
-      return "status__dead";
-    case "unknown":
-      return "status__unknown";
-    default:
-      return "";
-  }
-});
 
 const setOpen = (open: boolean) => (isOpen.value = open);
 </script>
