@@ -1,6 +1,6 @@
 <template>
   <ion-card :class="styles.card" color="light">
-    <ion-button fill="clear" size="small" color="light" @click="setOpen(true)">
+    <ion-button fill="clear" size="small" color="light" @click="openModal">
       <img :src="props.image" alt="Images of each element" />
     </ion-button>
     <div :class="styles.card__body">
@@ -20,11 +20,11 @@
     </div>
   </ion-card>
 
-  <ion-modal :is-open="isOpen">
+  <ion-modal :is-open="isOpen" @ionModalDidDismiss="handleModalDismiss">
     <ion-header>
       <ion-toolbar>
         <ion-buttons slot="end">
-          <ion-button @click="setOpen(false)">Close</ion-button>
+          <ion-button @click="closeModal">Close</ion-button>
         </ion-buttons>
       </ion-toolbar>
     </ion-header>
@@ -136,5 +136,15 @@ const props: Props = defineProps({
 
 let isOpen = ref<boolean>(false);
 
-const setOpen = (open: boolean) => (isOpen.value = open);
+const openModal = () => {
+  isOpen.value = true;
+};
+
+const closeModal = () => {
+  isOpen.value = false;
+};
+
+const handleModalDismiss = () => {
+  isOpen.value = false;
+};
 </script>
