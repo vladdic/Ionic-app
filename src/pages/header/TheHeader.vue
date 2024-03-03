@@ -1,5 +1,5 @@
 <template>
-  <div :class="dynamicHeaderClass">
+  <div :class="styles.header__container">
     <ion-button
       v-if="showMenuButton"
       @click.native="toggleContent"
@@ -59,8 +59,9 @@
           fill="clear"
           color="dark"
           :class="styles.menu__links_about"
-          >About us</ion-button
         >
+          About us
+        </ion-button>
       </div>
     </div>
   </div>
@@ -69,7 +70,7 @@
 <script setup lang="ts">
 import { useHeaderStore } from "./index";
 import styles from "./styles.module.scss";
-import { IonIcon, IonButton } from "@ionic/vue";
+import { IonButton, IonIcon } from "@ionic/vue";
 import { basket, menu, close, logoGoogle } from "ionicons/icons";
 import { useRouter } from "vue-router";
 import { computed } from "vue";
@@ -84,11 +85,11 @@ const toggleContent = () => {
 };
 
 const goToHome = () => {
-  window.scrollTo(0, 0);
   store.showContent = false;
-  router.push("/home");
+  router.push("/home").then(() => {
+    window.location.reload();
+  });
 };
-
 const goToCart = () => {
   store.showContent = false;
   router.push("/cart");
@@ -106,13 +107,6 @@ const goToAbout = () => {
 const isCartRoute = router.currentRoute.value.path === "/cart";
 const isHomeRoute = router.currentRoute.value.path === "/home";
 const isAuthRoute = router.currentRoute.value.path === "/auth";
-
-const dynamicHeaderClass = computed(() => {
-  return {
-    [styles.header__container]: true,
-    [styles.dynamic_header_cart]: isCartRoute,
-  };
-});
 
 const showMenuButton = computed(() => {
   return store.isSmallScreen && isHomeRoute;
