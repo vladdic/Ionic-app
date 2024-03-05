@@ -1,32 +1,30 @@
 <template>
-  <ion-page>
-    <div :class="styles.container">
-      <div :class="styles.home_btn">
-        <ion-button @click="goHome" fill="outline" color="dark" shape="round"
-          >go back</ion-button
-        >
-      </div>
-      <div :class="styles.login">
-        <ion-label v-if="!loggedIn">Sign in with Google</ion-label>
-        <ion-button
-          @click="login"
-          v-if="!loggedIn"
-          fill="outline"
-          color="dark"
-          shape="round"
-          >Log in</ion-button
-        >
-        <ion-label v-if="loggedIn">Logged in as: {{ userEmail }}</ion-label>
-      </div>
+  <div :class="styles.container">
+    <div :class="styles.home_btn">
+      <button @click="goHome" fill="outline" color="dark" shape="round">
+        go back
+      </button>
     </div>
-  </ion-page>
+    <div :class="styles.login">
+      <span v-if="!loggedIn">Sign in with Google</span>
+      <button
+        @click="login"
+        v-if="!loggedIn"
+        fill="outline"
+        color="dark"
+        shape="round"
+      >
+        Log in
+      </button>
+      <span v-if="loggedIn">Logged in as: {{ userEmail }}</span>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
 import styles from "./styles.module.scss";
 import { useRouter } from "vue-router";
 import { ref } from "vue";
-import { IonButton, IonPage, IonLabel } from "@ionic/vue";
 import {
   getAccessToken,
   GOOGLE_AUTH_URI,

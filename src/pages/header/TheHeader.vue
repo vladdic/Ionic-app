@@ -1,67 +1,33 @@
 <template>
   <div :class="styles.header__container">
-    <ion-button
-      v-if="showMenuButton"
-      @click.native="toggleContent"
-      fill="clear"
-      color="dark"
-    >
-      <ion-icon :icon="menu" size="large"></ion-icon>
-    </ion-button>
+    <button v-if="showMenuButton" @click.native="toggleContent"></button>
 
-    <ion-button
-      v-if="cartMenuButton"
-      @click.native="toggleContent"
-      fill="clear"
-      color="dark"
-    >
-      <ion-icon :icon="menu" size="large"></ion-icon>
-    </ion-button>
+    <button v-if="cartMenuButton" @click.native="toggleContent"></button>
 
-    <ion-button
+    <button
       v-if="showHomeButton"
       :class="styles.header__homelink"
-      fill="clear"
-      color="dark"
       @click="goToHome"
     >
       Home
-    </ion-button>
+    </button>
     <div :class="styles.header__otherBtns">
-      <ion-button
+      <button
         v-if="showAuthButton && showCartButton"
-        fill="clear"
-        color="dark"
         @click="goToAuth"
-      >
-        <ion-icon :icon="logoGoogle" size="large"></ion-icon>
-      </ion-button>
+      >auth</button>
 
-      <ion-button
-        v-if="showCartButton"
-        fill="clear"
-        color="dark"
-        @click="goToCart"
-      >
-        <ion-icon :icon="basket" size="large"></ion-icon>
-      </ion-button>
+      <button v-if="showCartButton" @click="goToCart">cart</button>
     </div>
 
     <div v-if="showSideMenu" :class="styles.menu__content">
       <div :class="styles.menu__close">
-        <ion-button @click.native="toggleContent" fill="clear" color="dark">
-          <ion-icon size="large" :icon="closeIcon"></ion-icon>
-        </ion-button>
+        <button @click.native="toggleContent"></button>
       </div>
       <div :class="styles.menu__links">
-        <ion-button
-          @click="goToAbout"
-          fill="clear"
-          color="dark"
-          :class="styles.menu__links_about"
-        >
+        <button @click="goToAbout" :class="styles.menu__links_about">
           About us
-        </ion-button>
+        </button>
       </div>
     </div>
   </div>
@@ -70,15 +36,11 @@
 <script setup lang="ts">
 import { useHeaderStore } from "./index";
 import styles from "./styles.module.scss";
-import { IonButton, IonIcon } from "@ionic/vue";
-import { basket, menu, close, logoGoogle } from "ionicons/icons";
 import { useRouter } from "vue-router";
 import { computed } from "vue";
 
 const store = useHeaderStore();
 const router = useRouter();
-
-const closeIcon = close;
 
 const toggleContent = () => {
   store.toggleContent();

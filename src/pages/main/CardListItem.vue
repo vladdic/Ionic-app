@@ -1,8 +1,8 @@
 <template>
-  <ion-card :class="styles.card" color="light">
-    <ion-button fill="clear" size="small" color="light" @click="openModal">
+  <div :class="styles.card" color="light">
+    <button @click="openModal">
       <img :src="props.image" alt="Images of each element" />
-    </ion-button>
+    </button>
     <div :class="styles.card__body">
       <h2>{{ props.name }}</h2>
       <div>
@@ -18,19 +18,12 @@
         :id="props.id"
       />
     </div>
-  </ion-card>
+  </div>
 
-  <ion-modal :is-open="isOpen" @ionModalDidDismiss="handleModalDismiss">
-    <ion-header>
-      <ion-toolbar>
-        <ion-buttons slot="end">
-          <ion-button @click="closeModal">Close</ion-button>
-        </ion-buttons>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content>
+  <div :is-open="isOpen">
+    <div>
       <div :class="styles.modal">
-        <ion-card color="light">
+        <div color="light">
           <div :class="styles.modal__img">
             <img :src="props.image" alt="Images of each element" />
           </div>
@@ -63,24 +56,15 @@
               </div>
             </div>
           </div>
-        </ion-card>
+        </div>
       </div>
-    </ion-content>
-  </ion-modal>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
 import styles from "./styles.module.scss";
 import Ui from "@/features/add-to-cart/Ui.vue";
-import {
-  IonModal,
-  IonCard,
-  IonContent,
-  IonHeader,
-  IonToolbar,
-  IonButtons,
-  IonButton,
-} from "@ionic/vue";
 import { ref } from "vue";
 
 export interface Props {
@@ -141,10 +125,6 @@ const openModal = () => {
 };
 
 const closeModal = () => {
-  isOpen.value = false;
-};
-
-const handleModalDismiss = () => {
   isOpen.value = false;
 };
 </script>

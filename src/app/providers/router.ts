@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from "@ionic/vue-router";
+import { createRouter, createWebHistory } from "vue-router";
 import { routes } from "@/pages/index";
 
 export const router = createRouter({
