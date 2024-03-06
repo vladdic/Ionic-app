@@ -4,18 +4,17 @@
 
     <button v-if="cartMenuButton" @click.native="toggleContent"></button>
 
-    <button
+    <el-button
       v-if="showHomeButton"
       :class="styles.header__homelink"
       @click="goToHome"
     >
       Home
-    </button>
+    </el-button>
     <div :class="styles.header__otherBtns">
-      <button
-        v-if="showAuthButton && showCartButton"
-        @click="goToAuth"
-      >auth</button>
+      <button v-if="showAuthButton && showCartButton" @click="goToAuth">
+        auth
+      </button>
 
       <button v-if="showCartButton" @click="goToCart">cart</button>
     </div>
@@ -36,6 +35,7 @@
 <script setup lang="ts">
 import { useHeaderStore } from "./index";
 import styles from "./styles.module.scss";
+import { ElButton } from "element-plus";
 import { useRouter } from "vue-router";
 import { computed } from "vue";
 

@@ -1,8 +1,8 @@
 <template>
-  <div :class="styles.card" color="light">
-    <button @click="openModal">
+  <el-card :class="styles.card" color="light">
+    <el-button plain @click="openModal">
       <img :src="props.image" alt="Images of each element" />
-    </button>
+    </el-button>
     <div :class="styles.card__body">
       <h2>{{ props.name }}</h2>
       <div>
@@ -18,52 +18,49 @@
         :id="props.id"
       />
     </div>
-  </div>
+  </el-card>
 
-  <div :is-open="isOpen">
-    <div>
-      <div :class="styles.modal">
-        <div color="light">
-          <div :class="styles.modal__img">
-            <img :src="props.image" alt="Images of each element" />
+  <el-dialog v-model="isOpen" width="500">
+    <div :class="styles.modal">
+      <div :class="styles.modal__img">
+        <img :src="props.image" alt="Images of each element" />
+      </div>
+      <div :class="styles.modal__body">
+        <h2>{{ props.name }}</h2>
+        <div :class="styles.modal__info">
+          <div>
+            <span :class="styles.modal__info_firstLetter">Species: </span>
+            <span>{{ props.species }} </span>
           </div>
-          <div :class="styles.modal__body">
-            <h2>{{ props.name }}</h2>
-            <div :class="styles.modal__info">
-              <div>
-                <span :class="styles.modal__info_firstLetter">Species: </span>
-                <span>{{ props.species }} </span>
-              </div>
-              <div>
-                <span :class="styles.modal__info_firstLetter">Status: </span>
-                <span>{{ props.status }} </span>
-              </div>
-              <div>
-                <span :class="styles.modal__info_firstLetter">Gender: </span>
-                <span>{{ props.gender }}</span>
-              </div>
-              <div>
-                <span :class="styles.modal__info_firstLetter">Origin: </span>
-                <span>{{ props.origin.name }}</span>
-              </div>
-              <div>
-                <span :class="styles.modal__info_firstLetter">Location: </span>
-                <span>{{ props.location.name }}</span>
-              </div>
-              <div>
-                <span :class="styles.modal__info_firstLetter">Created: </span>
-                <span>{{ props.created }}</span>
-              </div>
-            </div>
+          <div>
+            <span :class="styles.modal__info_firstLetter">Status: </span>
+            <span>{{ props.status }} </span>
+          </div>
+          <div>
+            <span :class="styles.modal__info_firstLetter">Gender: </span>
+            <span>{{ props.gender }}</span>
+          </div>
+          <div>
+            <span :class="styles.modal__info_firstLetter">Origin: </span>
+            <span>{{ props.origin.name }}</span>
+          </div>
+          <div>
+            <span :class="styles.modal__info_firstLetter">Location: </span>
+            <span>{{ props.location.name }}</span>
+          </div>
+          <div>
+            <span :class="styles.modal__info_firstLetter">Created: </span>
+            <span>{{ props.created }}</span>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </el-dialog>
 </template>
 
 <script setup lang="ts">
 import styles from "./styles.module.scss";
+import { ElButton, ElDialog, ElCard } from "element-plus";
 import Ui from "@/features/add-to-cart/Ui.vue";
 import { ref } from "vue";
 
