@@ -1,8 +1,8 @@
 <template>
   <div :class="styles.header__container">
-    <button v-if="showMenuButton" @click.native="toggleContent"></button>
+    <el-button v-if="showMenuButton" @click.native="toggleContent"></el-button>
 
-    <button v-if="cartMenuButton" @click.native="toggleContent"></button>
+    <el-button v-if="cartMenuButton" @click.native="toggleContent"></el-button>
 
     <el-button
       v-if="showHomeButton"
@@ -12,21 +12,21 @@
       Home
     </el-button>
     <div :class="styles.header__otherBtns">
-      <button v-if="showAuthButton && showCartButton" @click="goToAuth">
+      <el-button v-if="showAuthButton && showCartButton" @click="goToAuth">
         auth
-      </button>
+      </el-button>
 
-      <button v-if="showCartButton" @click="goToCart">cart</button>
+      <el-button v-if="showCartButton" @click="goToCart">cart</el-button>
     </div>
 
     <div v-if="showSideMenu" :class="styles.menu__content">
       <div :class="styles.menu__close">
-        <button @click.native="toggleContent"></button>
+        <el-button @click.native="toggleContent"></el-button>
       </div>
       <div :class="styles.menu__links">
-        <button @click="goToAbout" :class="styles.menu__links_about">
+        <el-button @click="goToAbout" :class="styles.menu__links_about">
           About us
-        </button>
+        </el-button>
       </div>
     </div>
   </div>

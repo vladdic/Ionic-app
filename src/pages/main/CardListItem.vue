@@ -1,55 +1,58 @@
 <template>
-  <el-card :class="styles.card" color="light">
-    <el-button plain @click="openModal">
+  <el-card class="card" color="light">
+    <el-button @click="openModal" class="card__button">
       <img :src="props.image" alt="Images of each element" />
     </el-button>
-    <div :class="styles.card__body">
+    <div class="card__body">
       <h2>{{ props.name }}</h2>
       <div>
-        <span :class="styles.card__body_species"> Species: </span>
-        <span>{{ props.species }} </span>
+        <span> Species: </span> <span>{{ props.species }} </span>
       </div>
       <Ui
-        :class="styles.btn__self"
+        class="btn__self"
         :image="props.image"
         :name="props.name"
         :status="props.status"
         :species="props.species"
+        :location="props.location"
+        :origin="props.origin"
+        :created="props.created"
+        :gender="props.gender"
         :id="props.id"
       />
     </div>
   </el-card>
 
   <el-dialog v-model="isOpen" width="500">
-    <div :class="styles.modal">
-      <div :class="styles.modal__img">
+    <div class="modal">
+      <div class="modal__img">
         <img :src="props.image" alt="Images of each element" />
       </div>
-      <div :class="styles.modal__body">
+      <div class="modal__body">
         <h2>{{ props.name }}</h2>
-        <div :class="styles.modal__info">
+        <div class="modal__info">
           <div>
-            <span :class="styles.modal__info_firstLetter">Species: </span>
+            <span class="modal__info_firstLetter">Species: </span>
             <span>{{ props.species }} </span>
           </div>
           <div>
-            <span :class="styles.modal__info_firstLetter">Status: </span>
+            <span class="modal__info_firstLetter">Status: </span>
             <span>{{ props.status }} </span>
           </div>
           <div>
-            <span :class="styles.modal__info_firstLetter">Gender: </span>
+            <span class="modal__info_firstLetter">Gender: </span>
             <span>{{ props.gender }}</span>
           </div>
           <div>
-            <span :class="styles.modal__info_firstLetter">Origin: </span>
+            <span class="modal__info_firstLetter">Origin: </span>
             <span>{{ props.origin.name }}</span>
           </div>
           <div>
-            <span :class="styles.modal__info_firstLetter">Location: </span>
+            <span class="modal__info_firstLetter">Location: </span>
             <span>{{ props.location.name }}</span>
           </div>
           <div>
-            <span :class="styles.modal__info_firstLetter">Created: </span>
+            <span class="modal__info_firstLetter">Created: </span>
             <span>{{ props.created }}</span>
           </div>
         </div>
@@ -59,7 +62,6 @@
 </template>
 
 <script setup lang="ts">
-import styles from "./styles.module.scss";
 import { ElButton, ElDialog, ElCard } from "element-plus";
 import Ui from "@/features/add-to-cart/Ui.vue";
 import { ref } from "vue";
@@ -120,8 +122,8 @@ let isOpen = ref<boolean>(false);
 const openModal = () => {
   isOpen.value = true;
 };
-
-const closeModal = () => {
-  isOpen.value = false;
-};
 </script>
+
+<style scoped lang="scss">
+@import "./styles.module.scss";
+</style>

@@ -21,6 +21,10 @@
                 :name="character.name"
                 :status="character.status"
                 :species="character.species"
+                :location="character.location"
+                :origin="character.origin"
+                :created="character.created"
+                :gender="character.gender"
                 :id="character.id"
               />
             </div>
@@ -39,11 +43,15 @@ import { useFavoritesStore } from "@/features/add-to-cart/store";
 import { ref, onMounted, watch } from "vue";
 
 interface Character {
-  id: number;
   image: string;
   name: string;
   status: string;
   species: string;
+  location: { name: string };
+  origin: { name: string };
+  created: string;
+  gender: string;
+  id: number;
 }
 
 const favoritesStore = useFavoritesStore();

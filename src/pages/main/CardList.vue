@@ -1,5 +1,5 @@
 <template>
-  <div :class="styles.card__list">
+  <div class="card__list">
     <CardListItem
       v-for="character in charactersList"
       :name="character.name"
@@ -19,7 +19,6 @@
 import CardListItem from "./CardListItem.vue";
 import { useCardStore } from "./index";
 import { Character } from "@/shared/api/typicode/apiTypes";
-import styles from "./styles.module.scss";
 import { ref, onMounted } from "vue";
 
 const store = useCardStore();
@@ -35,3 +34,7 @@ onMounted(async () => {
   }
 });
 </script>
+
+<style scoped lang="scss">
+@import "./styles.module.scss";
+</style>

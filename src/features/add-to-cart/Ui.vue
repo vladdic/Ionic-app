@@ -1,10 +1,13 @@
 <template>
-  <button @click="handleButtonClick"></button>
+  <el-button :icon="btnIcon" @click="handleButtonClick"> </el-button>
 </template>
 
 <script setup lang="ts">
 import { useFavoritesStore } from "./store";
+import { ElButton } from "element-plus";
+import { Delete, ShoppingCart } from "@element-plus/icons-vue";
 import { useRoute } from "vue-router";
+import { computed } from "vue";
 
 const props = defineProps<{
   image: string;
@@ -12,6 +15,12 @@ const props = defineProps<{
   status: string;
   species: string;
   id: number;
+  location: { name: string };
+  origin: {
+    name: string;
+  };
+  created: string;
+  gender: string;
 }>();
 
 const cartStore = useFavoritesStore();
@@ -24,4 +33,8 @@ const handleButtonClick = () => {
     cartStore.addToFavorites(props);
   }
 };
+
+const btnIcon = computed(() => {
+  return route.path === "/cart" ? Delete : ShoppingCart;
+});
 </script>
