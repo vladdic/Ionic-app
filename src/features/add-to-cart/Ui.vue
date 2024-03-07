@@ -1,5 +1,6 @@
 <template>
-  <el-button :icon="btnIcon" @click="handleButtonClick"> </el-button>
+  <el-button :icon="btnIcon" @click="handleButtonClick" type="info" plain>
+  </el-button>
 </template>
 
 <script setup lang="ts">

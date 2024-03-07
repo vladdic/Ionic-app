@@ -1,18 +1,45 @@
 <template>
   <div class="header__container">
-    <el-button v-if="showMenuButton" @click.native="toggleContent"></el-button>
+    <el-button
+      plain
+      v-if="showMenuButton"
+      @click.native="toggleContent"
+      type="info"
+    >
+      <el-icon><MoreFilled /></el-icon
+    ></el-button>
 
-    <el-button v-if="cartMenuButton" @click.native="toggleContent"></el-button>
+    <el-button
+      plain
+      v-if="cartMenuButton"
+      @click.native="toggleContent"
+      type="info"
+    >
+      <el-icon><MoreFilled /></el-icon
+    ></el-button>
 
-    <el-button v-if="showHomeButton" class="header__homelink" @click="goToHome">
+    <el-button
+      plain
+      v-if="showHomeButton"
+      class="header__homelink"
+      @click="goToHome"
+      type="info"
+    >
       Home
     </el-button>
     <div class="header__otherBtns">
-      <el-button v-if="showAuthButton && showCartButton" @click="goToAuth">
-        auth
+      <el-button
+        plain
+        v-if="showAuthButton && showCartButton"
+        @click="goToAuth"
+        type="info"
+      >
+        <el-icon><User /></el-icon>
       </el-button>
 
-      <el-button v-if="showCartButton" @click="goToCart">cart</el-button>
+      <el-button plain v-if="showCartButton" @click="goToCart" type="info"
+        ><el-icon> <ShoppingCart /></el-icon
+      ></el-button>
     </div>
 
     <div v-if="showSideMenu" class="menu__content">
@@ -20,7 +47,12 @@
         <el-button @click.native="toggleContent"></el-button>
       </div>
       <div class="menu__links">
-        <el-button @click="goToAbout" class="menu__links_about">
+        <el-button
+          plain
+          @click="goToAbout"
+          class="menu__links_about"
+          type="info"
+        >
           About us
         </el-button>
       </div>
@@ -30,7 +62,8 @@
 
 <script setup lang="ts">
 import { useHeaderStore } from "./index";
-import { ElButton } from "element-plus";
+import { ElButton, ElIcon } from "element-plus";
+import { User, ShoppingCart, MoreFilled } from "@element-plus/icons-vue";
 import { useRouter } from "vue-router";
 import { computed } from "vue";
 

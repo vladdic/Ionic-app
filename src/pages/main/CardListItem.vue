@@ -4,7 +4,7 @@
       <img :src="props.image" alt="Images of each element" />
     </el-button>
     <div class="card__body">
-      <h2>{{ props.name }}</h2>
+      <h4>{{ props.name }}</h4>
       <div>
         <span> Species: </span> <span>{{ props.species }} </span>
       </div>
@@ -126,4 +126,7 @@ const openModal = () => {
 
 <style scoped lang="scss">
 @import "./styles.module.scss";
+::v-deep .el-card__body {
+  padding: 0;
+}
 </style>

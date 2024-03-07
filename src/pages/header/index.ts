@@ -1,4 +1,4 @@
-import { defineStore } from 'pinia';
+import { defineStore } from "pinia";
 
 interface HeaderState {
   showContent: boolean;
@@ -6,7 +6,7 @@ interface HeaderState {
 }
 
 export const useHeaderStore = defineStore({
-  id: 'header',
+  id: "header",
   state: (): HeaderState => ({
     showContent: false,
     isSmallScreen: window.innerWidth <= 767,
@@ -22,7 +22,7 @@ export const useHeaderStore = defineStore({
       }
     },
     init() {
-      window.addEventListener('resize', this.handleResize);
+      window.addEventListener("resize", this.handleResize);
       this.handleResize();
     },
   },
