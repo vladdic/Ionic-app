@@ -1,20 +1,16 @@
 <template>
-  <div :class="styles.cart">
+  <div class="cart">
     <TheHeader></TheHeader>
-    <h1 :class="styles.cart__title">Cart</h1>
-    <div v-if="favoriteItems.length === 0" :class="styles.cart__message">
+    <h1 class="cart__title">Cart</h1>
+    <div v-if="favoriteItems.length === 0" class="cart__message">
       <p>Your cart is empty.</p>
     </div>
-    <div :class="styles.cards__container">
-      <div :class="styles.card__list">
+    <div class="cards__container">
+      <div class="card__list">
         <div v-for="(character, index) in favoriteItems" :key="index">
-          <div
-            v-if="character && character.image"
-            color="light"
-            :class="styles.card"
-          >
+          <div v-if="character && character.image" color="light" class="card">
             <img :src="character.image" :alt="`Image of ${character.name}`" />
-            <div :class="styles.card__info">
+            <div class="card__info">
               <p>{{ character.name }}</p>
               <Ui
                 :image="character.image"
@@ -36,7 +32,6 @@
 </template>
 
 <script setup lang="ts">
-import styles from "./styles.module.scss";
 import TheHeader from "@/pages/header/TheHeader.vue";
 import Ui from "@/features/add-to-cart/Ui.vue";
 import { useFavoritesStore } from "@/features/add-to-cart/store";
@@ -66,3 +61,7 @@ onMounted(() => {
   watch(favoritesStore, updateFavoriteItems);
 });
 </script>
+
+<style scoped>
+@import "./styles.module.scss";
+</style>

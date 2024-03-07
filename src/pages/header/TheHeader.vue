@@ -1,17 +1,13 @@
 <template>
-  <div :class="styles.header__container">
+  <div class="header__container">
     <el-button v-if="showMenuButton" @click.native="toggleContent"></el-button>
 
     <el-button v-if="cartMenuButton" @click.native="toggleContent"></el-button>
 
-    <el-button
-      v-if="showHomeButton"
-      :class="styles.header__homelink"
-      @click="goToHome"
-    >
+    <el-button v-if="showHomeButton" class="header__homelink" @click="goToHome">
       Home
     </el-button>
-    <div :class="styles.header__otherBtns">
+    <div class="header__otherBtns">
       <el-button v-if="showAuthButton && showCartButton" @click="goToAuth">
         auth
       </el-button>
@@ -19,12 +15,12 @@
       <el-button v-if="showCartButton" @click="goToCart">cart</el-button>
     </div>
 
-    <div v-if="showSideMenu" :class="styles.menu__content">
-      <div :class="styles.menu__close">
+    <div v-if="showSideMenu" class="menu__content">
+      <div class="menu__close">
         <el-button @click.native="toggleContent"></el-button>
       </div>
-      <div :class="styles.menu__links">
-        <el-button @click="goToAbout" :class="styles.menu__links_about">
+      <div class="menu__links">
+        <el-button @click="goToAbout" class="menu__links_about">
           About us
         </el-button>
       </div>
@@ -34,7 +30,6 @@
 
 <script setup lang="ts">
 import { useHeaderStore } from "./index";
-import styles from "./styles.module.scss";
 import { ElButton } from "element-plus";
 import { useRouter } from "vue-router";
 import { computed } from "vue";
@@ -95,3 +90,7 @@ const showSideMenu = computed(() => {
 });
 store.init();
 </script>
+
+<style scoped>
+@import "./styles.module.scss";
+</style>

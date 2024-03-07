@@ -1,29 +1,19 @@
 <template>
-  <div :class="styles.container">
-    <div :class="styles.home_btn">
-      <button @click="goHome" fill="outline" color="dark" shape="round">
-        go back
-      </button>
+  <div class="container">
+    <div class="home_btn">
+      <el-button @click="goHome"> go back </el-button>
     </div>
-    <div :class="styles.login">
+    <div class="login">
       <span v-if="!loggedIn">Sign in with Google</span>
-      <button
-        @click="login"
-        v-if="!loggedIn"
-        fill="outline"
-        color="dark"
-        shape="round"
-      >
-        Log in
-      </button>
+      <el-button @click="login" v-if="!loggedIn"> Log in </el-button>
       <span v-if="loggedIn">Logged in as: {{ userEmail }}</span>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import styles from "./styles.module.scss";
 import { useRouter } from "vue-router";
+import { ElButton } from "element-plus";
 import { ref } from "vue";
 import {
   getAccessToken,
@@ -81,3 +71,6 @@ const handleAuthorizationCode = async () => {
 
 handleAuthorizationCode();
 </script>
+<style scoped>
+@import "./styles.module.scss";
+</style>
