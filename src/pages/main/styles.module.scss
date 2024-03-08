@@ -30,9 +30,9 @@
 }
 
 .card {
-  border: 0.06rem solid black;
   max-width: 110px;
   padding: 0.5rem;
+  border: 0.06rem solid black;
 
   @media screen and (min-width: $screen-xxs) {
     max-width: 122px;
@@ -70,11 +70,15 @@
     gap: 0.5rem;
     width: 100%;
     align-items: flex-start;
+    font-size: 1rem;
     margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
 
-    .btn__self {
-      align-self: flex-end;
-    }
+  .btn__addToCart {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
   }
 }
 

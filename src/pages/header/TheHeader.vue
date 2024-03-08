@@ -44,7 +44,9 @@
 
     <div v-if="showSideMenu" class="menu__content">
       <div class="menu__close">
-        <el-button @click.native="toggleContent"></el-button>
+        <el-button @click.native="toggleContent">
+          <el-icon><Close /></el-icon>
+        </el-button>
       </div>
       <div class="menu__links">
         <el-button
@@ -63,7 +65,7 @@
 <script setup lang="ts">
 import { useHeaderStore } from "./index";
 import { ElButton, ElIcon } from "element-plus";
-import { User, ShoppingCart, MoreFilled } from "@element-plus/icons-vue";
+import { User, ShoppingCart, MoreFilled, Close } from "@element-plus/icons-vue";
 import { useRouter } from "vue-router";
 import { computed } from "vue";
 

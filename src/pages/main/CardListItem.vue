@@ -8,6 +8,8 @@
       <div>
         <span> Species: </span> <span>{{ props.species }} </span>
       </div>
+    </div>
+    <div class="btn__addToCart">
       <Ui
         class="btn__self"
         :image="props.image"

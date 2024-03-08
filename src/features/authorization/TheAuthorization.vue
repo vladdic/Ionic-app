@@ -1,11 +1,13 @@
 <template>
   <div class="container">
     <div class="home_btn">
-      <el-button @click="goHome"> go back </el-button>
+      <el-button @click="goHome" type="info" plain> go back </el-button>
     </div>
     <div class="login">
       <span v-if="!loggedIn">Sign in with Google</span>
-      <el-button @click="login" v-if="!loggedIn"> Log in </el-button>
+      <el-button @click="login" v-if="!loggedIn" type="info" plain>
+        Log in
+      </el-button>
       <span v-if="loggedIn">Logged in as: {{ userEmail }}</span>
     </div>
   </div>
