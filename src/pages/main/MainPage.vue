@@ -30,7 +30,7 @@ onMounted(async () => {
     await store.fetchData(store.currentPage);
     charactersList.value = store.charactersList;
   } catch (error) {
-    console.error("Error in cardList.vue:", error);
+    console.error("Error in MainPage.vue:", error);
   }
 });
 </script>

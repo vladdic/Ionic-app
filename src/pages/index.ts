@@ -2,7 +2,11 @@ import { RouteRecordRaw } from "vue-router";
 
 export const routes: Array<RouteRecordRaw> = [
   { path: "/", redirect: "/home" },
-  { path: "/home", name: "Home", component: () => import("./TheHome.vue") },
+  {
+    path: "/home",
+    name: "Home",
+    component: () => import("@/pages/main/MainPage.vue"),
+  },
   {
     path: "/auth",
     name: "Authorization",

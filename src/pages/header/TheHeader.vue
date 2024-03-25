@@ -1,13 +1,13 @@
 <template>
-  <div class="header__container">
+  <header class="header__container">
     <el-button
       plain
       v-if="showMenuButton"
       @click.native="toggleContent"
       type="info"
     >
-      <el-icon><MoreFilled /></el-icon
-    ></el-button>
+      <el-icon><MoreFilled /></el-icon>
+    </el-button>
 
     <el-button
       plain
@@ -15,8 +15,8 @@
       @click.native="toggleContent"
       type="info"
     >
-      <el-icon><MoreFilled /></el-icon
-    ></el-button>
+      <el-icon><MoreFilled /></el-icon>
+    </el-button>
 
     <el-button
       plain
@@ -59,7 +59,7 @@
         </el-button>
       </div>
     </div>
-  </div>
+  </header>
 </template>
 
 <script setup lang="ts">
@@ -92,7 +92,6 @@ const goToAuth = () => {
 };
 
 const goToAbout = () => {
-  window.scrollTo(0, 0);
   router.push("/about");
 };
 

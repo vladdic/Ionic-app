@@ -69,7 +69,7 @@ Follow the Functional Specification Document (FSD) methodology to comprehensivel
 
 ### Display Cards Dynamically
 
-Adjust the number of displayed cards dynamically in the [CardList.vue](#) component based on the provided argument (from 1 to 5). Modify the template section as follows:
+Adjust the number of displayed cards dynamically in the [MainPage.vue](#) component based on the provided argument (from 1 to 5). Modify the template section as follows:
 
 - const response = await store.fetchProductsByCategoryId(#); // Adjust the initial count based on your requirement
 
