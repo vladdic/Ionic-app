@@ -1,17 +1,17 @@
 <template>
   <el-card class="card" color="light">
-    <el-button @click="openModal" class="card__button">
+    <el-button @click="openModal" class="card-button">
       <img :src="props.image" alt="Images of each element" />
     </el-button>
     <div class="card__body">
       <h4>{{ props.name }}</h4>
       <div>
-        <span> Species: </span> <span>{{ props.species }} </span>
+        <span> Species: </span>
+        <span>{{ props.species }} </span>
       </div>
     </div>
-    <div class="btn__addToCart">
+    <div class="btn btn-addToCart">
       <Ui
-        class="btn__self"
         :image="props.image"
         :name="props.name"
         :status="props.status"

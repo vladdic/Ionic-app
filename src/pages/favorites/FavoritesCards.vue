@@ -1,6 +1,5 @@
 <template>
   <div class="cart">
-    <TheHeader></TheHeader>
     <h1 class="cart__title">Cart</h1>
     <div v-if="favoriteItems.length === 0" class="cart__message">
       <p>Your cart is empty.</p>
@@ -32,7 +31,6 @@
 </template>
 
 <script setup lang="ts">
-import TheHeader from "@/pages/header/TheHeader.vue";
 import Ui from "@/features/add-to-cart/Ui.vue";
 import { useFavoritesStore } from "@/features/add-to-cart/store";
 import { ref, onMounted, watch } from "vue";
